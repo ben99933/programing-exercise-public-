@@ -5,7 +5,7 @@
 
 int main(){
     int hp = 10;
-    int str = 2;
+    int str = 2;//strength
 
     int str_mon[4] = {1, 2, 3, 4};
     printf("Welcome, Adventurer!\n");
@@ -22,6 +22,7 @@ int main(){
             int input_exit;
             printf("Do you want to go on your adventure (1: Yes; 0: No) ?: ");
             scanf("%d", &input_exit);
+            //是否退出遊戲
             if (input_exit == 1){
                 continue;
             }else{
@@ -34,12 +35,13 @@ int main(){
         printf("You are fighting Monster %d!\n", input);
 
         //打得過的話
-        if(str > input){
+        if(str > str_mon[input-1]){
             printf("You Win!\n");
             str++;
             int input_exit;
             printf("Do you want to go on your adventure (1: Yes; 0: No) ?: ");
             scanf("%d",&input_exit);
+            //是否退出遊戲
             if (input_exit == 1){
                 continue;
             }else{
@@ -53,6 +55,7 @@ int main(){
             int input_exit;
             printf("Do you want to go on your adventure (1: Yes; 0: No) ?: ");
             scanf("%d",&input_exit);
+            //是否退出遊戲
             if (input_exit == 1){
                 continue;
             }else{
@@ -62,6 +65,9 @@ int main(){
 
         }
     }
+
+    //這個我直接寫在WHILE之外是因為 退出遊戲的話早就RETURN了
+    //能夠讀到這表示HP沒了
     printf("You Dead. Bye!\n");
 
     return 0;
