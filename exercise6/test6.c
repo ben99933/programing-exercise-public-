@@ -14,7 +14,8 @@ int main(){
     scanf("%f", &f1);
     result = f1;
     char c;
-    while((c = getchar())!='\n'){
+    int input_check = scanf("%c", &c);//檢查是否為EOF
+    while(input_check != EOF && c != '\n'){
         scanf("%f",&f2);
         if(c == '+'){
             result += f2;
@@ -27,6 +28,7 @@ int main(){
         else if(c == '/'){
             result /= f2;
         }
+        input_check = scanf("%c", &c);
     }
     printf("%.2f", result);
     return 0;
