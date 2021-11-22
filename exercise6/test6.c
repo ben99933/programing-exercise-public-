@@ -15,6 +15,7 @@ int main(){
     result = f1;
     char c;
     int input_check = scanf("%c", &c);//檢查是否為EOF
+    int isDividedZero = 0;
     while(input_check != EOF && c != '\n'){
         scanf("%f",&f2);
         if(c == '+'){
@@ -26,10 +27,17 @@ int main(){
             result *= f2;
         }
         else if(c == '/'){
-            result /= f2;
+            if(f2==0){
+                printf("Can not divided by zero!!!!!!\n");
+                isDividedZero = 1;
+                break;
+            }else{
+                result /= f2;
+            }
+            
         }
         input_check = scanf("%c", &c);
     }
-    printf("%.2f", result);
+    if(isDividedZero == 0)printf("%.2f", result);
     return 0;
 }
